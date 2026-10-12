@@ -1,0 +1,197 @@
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: 'Impact', 'Arial Black', sans-serif;
+}
+body {
+  background-color: #121212;
+  background-image: radial-gradient(circle at center, #2a0800 0%, #000000 100%);
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+h1 {
+  font-size: 40px; 
+  color: #ff4500;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  margin-bottom: 32px; 
+  text-shadow: 2px 2px 10px rgba(255, 69, 0, 0.5);
+  text-align: center;
+}
+.arena {
+  display: flex;
+  gap: 48px; 
+  align-items: center;
+  justify-content: center;
+  background: rgba(255, 255, 255, 0.05);
+  padding: 48px; 
+  border-radius: 20px;
+  border: 2px solid #333;
+  box-shadow: 0 20px 50px rgba(0,0,0,0.8);
+}
+.fighter {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 24px; 
+  width: 200px;
+}
+.fighter-name {
+  font-size: 32px; 
+  color: #f0f0f0;
+  text-transform: uppercase;
+  text-shadow: 2px 2px 4px #000;
+}
+.score {
+  font-size: 40px; 
+  background: #222;
+  color: #ffaa00;
+  width: 100%;
+  text-align: center;
+  padding: 10px;
+  border-radius: 10px;
+  border: 2px solid #555;
+}
+.rock-boulder {
+  width: 150px;
+  height: 150px;
+  background: linear-gradient(145deg, #5c5c5c, #2e2e2e);
+  border-radius: 40% 60% 70% 30% / 40% 50% 60% 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 64px; 
+  color: #fff;
+  text-shadow: 3px 3px 5px #000;
+  box-shadow: 
+    inset 10px 10px 20px rgba(255,255,255,0.1),
+    10px 10px 20px rgba(0,0,0,0.8);
+  transition: all 0.3s ease;
+}
+.smackdown-btn {
+  background: linear-gradient(to bottom, #ff4500, #b33000);
+  color: white;
+  border: none;
+  padding: 20px 40px;
+  font-size: 32px; 
+  text-transform: uppercase;
+  border-radius: 15px;
+  cursor: pointer;
+  box-shadow: 0 10px 0 #661a00, 0 15px 20px rgba(0,0,0,0.5);
+  transition: all 0.1s;
+}
+.smackdown-btn:active {
+  transform: translateY(10px);
+  box-shadow: 0 0 0 #661a00, 0 5px 10px rgba(0,0,0,0.5);
+}
+.hit {
+  animation: tremble 0.3s cubic-bezier(.36,.07,.19,.97) both;
+}
+@keyframes tremble {
+  0% { transform: translate(0, 0) scale(1); }
+  25% { transform: translate(-5px, 5px) scale(1.1); }
+  50% { transform: translate(5px, -5px) scale(1.1); }
+  75% { transform: translate(-5px, -5px) scale(1.1); }
+  100% { transform: translate(0, 0) scale(1); }
+}
+.modal-overlay {
+  display: none; 
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.9);
+  z-index: 999;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  transition: opacity 0.5s ease-in-out;
+  padding: 20px;
+}
+.modal-overlay.active {
+  display: flex;
+  opacity: 1;
+}
+.modal-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 24px; /* Було 1.5rem */
+  max-width: 600px;
+  width: 100%;
+  max-height: 90vh; 
+  animation: scaleUp 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+@keyframes scaleUp {
+  from { transform: scale(0.7); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
+.victory-img {
+  width: auto;
+  max-width: 100%;
+  max-height: 65vh; 
+  object-fit: contain;
+  border-radius: 15px;
+  border: 4px solid #ff4500;
+  box-shadow: 0 0 30px rgba(255, 69, 0, 0.8);
+}
+
+.victory-img-gold {
+  width: auto;
+  max-width: 100%;
+  max-height: 65vh;      
+  object-fit: contain;
+  border-radius: 15px;
+  border: 4px solid #ffaa00; 
+  box-shadow: 0 0 40px rgba(255, 170, 0, 0.8); 
+}
+.retry-btn {
+  background: linear-gradient(to bottom, #ff4500, #b33000);
+  color: white;
+  border: none;
+  padding: 15px 35px;
+  font-size: 28px; 
+  text-transform: uppercase;
+  border-radius: 12px;
+  cursor: pointer;
+  box-shadow: 0 6px 0 #661a00, 0 10px 15px rgba(0,0,0,0.5);
+  transition: transform 0.1s;
+  position: relative;
+  z-index: 1000;
+  margin-bottom: 10px;
+}
+.retry-btn:active {
+  transform: translateY(4px);
+  box-shadow: 0 2px 0 #661a00, 0 4px 5px rgba(0,0,0,0.5);
+}
+.retry-btn-gold {
+  background: linear-gradient(to bottom, #ffaa00, #b37700);
+  color: #000; 
+  border: none;
+  padding: 15px 35px;
+  font-size: 28px;
+  text-transform: uppercase;
+  border-radius: 12px;
+  cursor: pointer;
+  box-shadow: 0 6px 0 #664400, 0 10px 15px rgba(0,0,0,0.5);
+  transition: transform 0.1s;
+  position: relative;
+  z-index: 1000;
+  margin-bottom: 10px;
+}
+.retry-btn-gold:active {
+  transform: translateY(4px);
+  box-shadow: 0 2px 0 #664400, 0 4px 5px rgba(0,0,0,0.5);
+}
+@media (max-width: 800px) {
+  .arena { flex-direction: column; gap: 32px; padding: 24px; }
+  .smackdown-btn { order: 3; font-size: 24px; width: 100%; }
+}

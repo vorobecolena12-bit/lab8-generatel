@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>lab№8</title>
+  <link rel="stylesheet" href="style.css">
+   <script src="script.js" defer></script>
+</head>
+<body>
+  <h1>Can you smell what The Rock is cooking?</h1>
+  <div class="arena">
+    <div class="fighter">
+      <div class="fighter-name" id="user-name">Fighter</div>
+      <div class="score" id="user-score">0</div>
+      <div class="rock-boulder" id="user-number">0</div>
+    </div>
+    <button class="smackdown-btn" id="generate-btn">SMACKDOWN!</button>
+    <div class="fighter">
+      <div class="fighter-name">The Rock</div>
+      <div class="score" id="computer-score">0</div>
+      <div class="rock-boulder" id="computer-number">0</div>
+    </div>
+  </div>
+  <div class="modal-overlay" id="rock-victory-modal">
+    <div class="modal-content">
+      <img src="scala.jpg" alt="The Rock Wins!" class="victory-img">
+      <button class="retry-btn" id="retry-btn">TRY AGAIN!!!</button>
+    </div>
+  </div>
+  <div class="modal-overlay" id="player-victory-modal">
+    <div class="modal-content">
+      <img src="scalawin.jpg" alt="You Win!" class="victory-img-gold">
+      <button class="retry-btn-gold" id="player-retry-btn">FIGHT AGAIN 🏆 </button>
+    </div>
+  </div>
+</body>
+</html>
